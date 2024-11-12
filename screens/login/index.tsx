@@ -5,9 +5,11 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  ImageBackground,
+  Button,
 } from "react-native";
 import { useState } from "react";
-import logo from "../../assets/logo.png";
+import background from "../../assets/background.png";
 
 const Login = () => {
   // Define o estado para email e senha
@@ -21,31 +23,38 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.logo} source={logo} />
-      <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={(e) => {
-          setEmail(e); // Atualiza o estado do email ao digitar
-        }}
-        value={email}
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={(e) => {
-          setSenha(e); // Atualiza o estado da senha ao digitar
-        }}
-        value={senha}
-      />
-
-      <TouchableOpacity
-        onPress={() => {
-          logar(); // Chama a função logar ao pressionar o botão
-        }}
-        style={styles.button}
-      >
-        <Text style={styles.textButton}>ENTRAR</Text>
-      </TouchableOpacity>
+      <ImageBackground style={styles.imageBackground} source={background}>
+        <View style={styles.signInContainer}>
+          <Text style={styles.label}>SIGN IN</Text>
+        </View>
+        <TextInput
+          placeholderTextColor={"white"}
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={(e) => {
+            setEmail(e);
+          }}
+        />
+        <TextInput
+          placeholderTextColor={"white"}
+          style={styles.input}
+          secureTextEntry={true}
+          placeholder="Password"
+          value={senha}
+          onChangeText={(e) => {
+            setSenha(e);
+          }}
+        />
+        <TouchableOpacity
+          onPress={() => {
+            logar(); // Chama a função logar ao pressionar o botão
+          }}
+          style={styles.button}
+        >
+          <Text style={styles.textButton}>ENTRAR</Text>
+        </TouchableOpacity>
+      </ImageBackground>
     </View>
   );
 };
@@ -56,38 +65,46 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#9b9595",
-    gap: 25, // Espaçamento entre os itens
   },
-  title: {
-    color: "white",
-    fontSize: 30,
-    fontWeight: "bold",
+  imageBackground: {
+    flex: 1,
+    gap: 30,
+    alignItems: "center",
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+    justifyContent: "flex-end",
+  },
+  signInContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 24,
   },
   input: {
-    width: 300,
-    height: 40,
+    width: "100%",
+    height: 50,
     borderColor: "#ddd",
     borderWidth: 1,
     borderRadius: 5,
     padding: 10, // Espaçamento interno
+    color: "#fbfbfb",
+    backgroundColor: "#e7e7e746",
   },
   button: {
-    padding: 12, // Espaçamento interno do botão
-    width: 300,
-    backgroundColor: "#1e809c",
+    padding: 20, // Espaçamento interno do botão
+    width: "100%",
+    backgroundColor: "#e7e7e7",
     alignItems: "center",
     borderRadius: 5, // Bordas arredondadas do botão
   },
   textButton: {
-    color: "white",
+    color: "black",
     fontSize: 16,
     fontWeight: "bold",
   },
-  logo: {
-    width: 200,
-    height: 200,
+  label: {
+    flex: 1,
+    fontSize: 26,
+    color: "white",
+    fontWeight: "bold",
   },
 });

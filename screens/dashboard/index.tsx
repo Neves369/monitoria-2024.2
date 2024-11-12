@@ -1,34 +1,84 @@
-import { View, StyleSheet, Text } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 const Dashboard = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.comp1}>
-        <Text style={styles.text}>Header</Text>
+    <ScrollView style={styles.container}>
+      <View style={styles.principal}></View>
+
+      <View style={styles.menu}>
+        <TouchableOpacity style={styles.item}>
+          <ImageBackground
+            style={styles.itemSection}
+            resizeMode="cover"
+            resizeMethod="auto"
+            source={require("../../assets/musculação.webp")}
+          />
+          <View style={styles.itemSection}>
+            <Text style={styles.itemTitle}>MUSCULAÇÃO</Text>
+            <View style={styles.info}>
+              <MaterialIcons name="graphic-eq" size={24} color={"grey"} />
+              <Text>NÍVEL</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.itemReverse}>
+          <ImageBackground
+            style={styles.itemSection}
+            resizeMode="cover"
+            resizeMethod="auto"
+            source={require("../../assets/crossfit.jpg")}
+          />
+          <View style={styles.itemSection}>
+            <Text style={styles.itemTitle}>CROSSFIT</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.item}>
+          <ImageBackground
+            style={styles.itemSection}
+            resizeMode="cover"
+            resizeMethod="auto"
+            source={require("../../assets/funcional.jpg")}
+          />
+          <View style={styles.itemSection}>
+            <Text style={styles.itemTitle}>FUNCIONAL</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.itemReverse}>
+          <ImageBackground
+            style={styles.itemSection}
+            resizeMode="cover"
+            resizeMethod="auto"
+            source={require("../../assets/calistenia.jpg")}
+          />
+          <View style={styles.itemSection}>
+            <Text style={styles.itemTitle}>CALISTENIA</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.item}>
+          <ImageBackground
+            style={styles.itemSection}
+            resizeMode="cover"
+            resizeMethod="auto"
+            source={require("../../assets/academia.jpg")}
+          />
+          <View style={styles.itemSection}>
+            <Text style={styles.itemTitle}>ACADEMIAS</Text>
+          </View>
+        </TouchableOpacity>
       </View>
-      <View style={styles.comp2}>
-        <View style={[styles.conteudo, { backgroundColor: "white" }]}>
-          <View style={styles.item}></View>
-          <View style={styles.item}></View>
-          <View style={styles.item}></View>
-        </View>
-        <View
-          style={[styles.conteudo, { backgroundColor: "rgb(128, 128, 128)" }]}
-        >
-          <View style={styles.item}></View>
-          <View style={styles.item}></View>
-          <View style={styles.item}></View>
-        </View>
-        <View style={[styles.conteudo, { backgroundColor: "rgb(39, 34, 34)" }]}>
-          <View style={styles.item}></View>
-          <View style={styles.item}></View>
-          <View style={styles.item}></View>
-        </View>
-      </View>
-      <View style={styles.comp3}>
-        <Text style={styles.text}>Footer</Text>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -38,37 +88,35 @@ export default Dashboard;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#9b9595",
+    paddingBottom: 100,
   },
-  text: {
-    color: "white",
-    fontSize: 20,
-  },
-  comp1: {
-    flex: 2,
-    alignItems: "center",
+  principal: {
+    height: 400,
+    width: "100%",
     backgroundColor: "red",
-    justifyContent: "center",
   },
-  comp2: {
-    flex: 8,
-    backgroundColor: "green",
-  },
-  comp3: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "blue",
-  },
-  conteudo: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    flexDirection: "row",
+  menu: {
+    width: "100%",
   },
   item: {
-    width: 100,
-    height: 100,
-    backgroundColor: "black",
+    minHeight: 100,
+    flexDirection: "row",
+  },
+  itemReverse: {
+    minHeight: 100,
+    flexDirection: "row-reverse",
+  },
+  itemSection: {
+    flex: 1,
+    padding: 16,
+  },
+  itemTitle: {
+    flex: 1,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  info: {
+    gap: 5,
+    flexDirection: "row",
   },
 });
