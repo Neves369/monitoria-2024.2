@@ -1,0 +1,146 @@
+{
+
+  "categorias": [
+    {
+        "nome": "MUSCULAÇÃO",
+        "exercicios": [
+            {
+                "nome": "PEITO",
+                "exercicios": [
+                  {
+                    "nome": "Supino Reto",
+                    "series": 4,
+                    "repeticoes": "8-12",
+                    "descricao": "Exercício de peito para fortalecer a parte central do peitoral."
+                  },
+                  {
+                    "nome": "Supino Inclinado com Halteres",
+                    "series": 3,
+                    "repeticoes": "10-12",
+                    "descricao": "Focado na parte superior do peito."
+                  },
+                  {
+                    "nome": "Crucifixo",
+                    "series": 3,
+                    "repeticoes": "10-12",
+                    "descricao": "Exercício para expandir e alongar o peitoral."
+                  }
+                ]
+            },
+            {
+            "nome": "COSTAS",
+            "exercicios": [
+                {
+                "nome": "Puxada Alta",
+                "series": 4,
+                "repeticoes": "10-12",
+                "descricao": "Trabalha a largura das costas."
+                },
+                {
+                "nome": "Remada Curvada",
+                "series": 4,
+                "repeticoes": "8-10",
+                "descricao": "Desenvolve espessura das costas."
+                },
+                {
+                "nome": "Pullover",
+                "series": 3,
+                "repeticoes": "10-12",
+                "descricao": "Exercício para fortalecer costas e peito simultaneamente."
+                }
+            ]
+            },
+            {
+            "nome": "PERNAS",
+            "exercicios": [
+                {
+                "nome": "Agachamento Livre",
+                "series": 4,
+                "repeticoes": "8-10",
+                "descricao": "Exercício principal para pernas e glúteos."
+                },
+                {
+                "nome": "Leg Press",
+                "series": 4,
+                "repeticoes": "10-12",
+                "descricao": "Desenvolve força nas pernas e glúteos."
+                },
+                {
+                "nome": "Extensora",
+                "series": 3,
+                "repeticoes": "12-15",
+                "descricao": "Exercício focado no quadríceps."
+                }
+            ]
+            },
+            {
+            "nome": "OMBROS",
+            "exercicios": [
+                {
+                "nome": "Desenvolvimento com Halteres",
+                "series": 3,
+                "repeticoes": "8-10",
+                "descricao": "Fortalece e aumenta o volume dos ombros."
+                },
+                {
+                "nome": "Elevação Lateral",
+                "series": 4,
+                "repeticoes": "10-12",
+                "descricao": "Trabalha o deltoide lateral."
+                },
+                {
+                "nome": "Desenvolvimento Arnold",
+                "series": 3,
+                "repeticoes": "8-10",
+                "descricao": "Exercício completo para os ombros."
+                }
+            ]
+            },
+            {
+            "nome": "BRAÇOS",
+            "exercicios": [
+                {
+                "nome": "Rosca Direta",
+                "series": 4,
+                "repeticoes": "10-12",
+                "descricao": "Exercício básico para bíceps."
+                },
+                {
+                "nome": "Tríceps Testa",
+                "series": 3,
+                "repeticoes": "10-12",
+                "descricao": "Focado no desenvolvimento do tríceps."
+                },
+                {
+                "nome": "Rosca Martelo",
+                "series": 3,
+                "repeticoes": "10-12",
+                "descricao": "Trabalha o braquiorradial e aumenta a força do antebraço."
+                }
+            ]
+            }
+        ]
+    },
+    {
+        "nome": "CROSSFIT",
+        "exercicios": []
+    },
+    {
+        "nome": "POWERLIFTING",
+        "exercicios": []
+    },
+    {
+        "nome": "FUNCIONAL",
+        "exercicios": []
+    },
+    {
+      "nome": "CALISTENIA",
+      "exercicios": []
+    },
+    {
+      "nome": "ACADEMIAS",
+      "exercicios": []
+    }
+  ]
+}
+  

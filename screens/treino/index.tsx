@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
-import TreinoItem from "../../components/treino/TreinoItem";
+import TreinoItem from "../../components/menu/TreinoItem";
+import data from "../../data.json";
 
 const Treino = () => {
-  const [treinos, setTreinos] = useState([
-    { id: 1, nome: "Treino 1" },
-    { id: 2, nome: "Treino 2" },
-    { id: 3, nome: "Treino 3" },
-    { id: 4, nome: "Treino 4" },
-    { id: 5, nome: "Treino 5" },
-    { id: 6, nome: "Treino 6" },
-    { id: 7, nome: "Treino 7" },
-    { id: 8, nome: "Treino 8" },
-    { id: 9, nome: "Treino 9" },
-  ]);
+  const [treinos, setTreinos] = useState<any>([]);
+
+  useEffect(() => {
+    setTreinos(data.categorias[0].exercicios);
+  }, []);
 
   const Header = () => {
     return <View style={styles.header} />;
@@ -22,13 +17,14 @@ const Treino = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        ListHeaderComponent={Header}
         data={treinos}
-        contentContainerStyle={styles.content}
+        ListHeaderComponent={Header}
         renderItem={({ item }) => {
-          return <TreinoItem item={item} />;
+          return (
+            <TreinoItem item={item} resizeMode="contain" reverseItem={false} />
+          );
         }}
-        keyExtractor={(item) => `${item.id}`}
+        keyExtractor={(item) => `${item.nome}`}
       />
     </View>
   );
@@ -40,9 +36,6 @@ export default Treino;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  content: {
-    gap: 10,
   },
   header: {
     height: 50,

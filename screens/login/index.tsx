@@ -13,8 +13,8 @@ import background from "../../assets/background.png";
 
 const Login = () => {
   // Define o estado para email e senha
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [senha, setSenha] = useState<string>("");
 
   // Função chamada ao logar
   const logar = () => {
