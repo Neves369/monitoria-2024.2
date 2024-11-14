@@ -40,6 +40,7 @@ const AppRoutes = () => {
         name="Dashboard"
         component={Dashboard}
         options={{
+          headerShown: false,
           animation: "slide_from_left",
         }}
       />

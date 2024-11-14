@@ -1,14 +1,25 @@
 import { memo } from "react";
-import { View, StyleSheet, Dimensions, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  Image,
+  ImageBackground,
+} from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 
 const { width } = Dimensions.get("screen");
 
 const renderItem = ({ item }: any) => {
   return (
-    <View style={styles.item}>
+    <ImageBackground
+      style={styles.background}
+      blurRadius={20}
+      source={item.imagem}
+    >
+      <View style={styles.overlay} />
       <Image style={styles.imagem} source={item.imagem} />
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -47,14 +58,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#630a0a",
   },
-  item: {
+  background: {
     width: width,
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
   imagem: {
-    height: "100%",
-    width: "100%",
+    height: 300,
+    width: 300,
+    borderRadius: 10,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject, // Preenche a tela
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
 });
