@@ -13,11 +13,20 @@ interface TreinoItemProps {
   item: any;
   resizeMode: "cover" | "contain" | "stretch" | "repeat" | "center";
   reverseItem: boolean;
+  onPress: any;
 }
 
-const TreinoItem = ({ item, resizeMode, reverseItem }: TreinoItemProps) => {
+const TreinoItem = ({
+  item,
+  resizeMode,
+  reverseItem,
+  onPress,
+}: TreinoItemProps) => {
   return (
-    <TouchableOpacity style={reverseItem ? styles.itemReverse : styles.item}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={reverseItem ? styles.itemReverse : styles.item}
+    >
       <ImageBackground
         style={styles.itemSection}
         resizeMode={resizeMode}

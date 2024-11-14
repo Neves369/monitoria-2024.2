@@ -1,9 +1,19 @@
-import { View, ScrollView, StyleSheet } from "react-native";
 import data from "../../data.json";
+import { View, ScrollView, StyleSheet } from "react-native";
 import TreinoItem from "../../components/menu/TreinoItem";
 import Carrossel from "../../components/dashboard/carrossel";
+import { DashboardProps } from "../../routes/app.routes";
 
-const Dashboard = () => {
+const Dashboard = ({ navigation }: DashboardProps) => {
+  // Precisei criar uma função para filtrar os exercícios por categoria
+  const buscarExercios = (nome: string) => {
+    const categoria = data.categorias.find(
+      (atividade) => atividade.nome === nome
+    );
+    const exercicios = categoria ? categoria.exercicios : [];
+    navigation.navigate("Treino", exercicios);
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.principal}>
@@ -12,31 +22,49 @@ const Dashboard = () => {
 
       <View style={styles.menu}>
         <TreinoItem
+          onPress={() => {
+            buscarExercios(data.categorias[0].nome);
+          }}
           item={data.categorias[0]}
           resizeMode="cover"
           reverseItem={false}
         />
         <TreinoItem
+          onPress={() => {
+            buscarExercios(data.categorias[1].nome);
+          }}
           item={data.categorias[1]}
           resizeMode="cover"
           reverseItem={true}
         />
         <TreinoItem
+          onPress={() => {
+            buscarExercios(data.categorias[2].nome);
+          }}
           item={data.categorias[2]}
           resizeMode="cover"
           reverseItem={false}
         />
         <TreinoItem
+          onPress={() => {
+            buscarExercios(data.categorias[3].nome);
+          }}
           item={data.categorias[3]}
           resizeMode="cover"
           reverseItem={true}
         />
         <TreinoItem
+          onPress={() => {
+            buscarExercios(data.categorias[4].nome);
+          }}
           item={data.categorias[4]}
           resizeMode="cover"
           reverseItem={false}
         />
         <TreinoItem
+          onPress={() => {
+            buscarExercios(data.categorias[5].nome);
+          }}
           item={data.categorias[5]}
           resizeMode="cover"
           reverseItem={true}

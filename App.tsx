@@ -1,14 +1,18 @@
-import { SafeAreaView } from "react-native";
-import Dashboard from "./screens/dashboard";
-import Login from "./screens/login";
-import Treino from "./screens/treino";
+import Routes from "./routes";
+import { AuthProvider } from "./context/auth";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      {/* <Login /> */}
-      <Dashboard />
-      {/* <Treino /> */}
-    </SafeAreaView>
+    // Permite que a navegação funcione corretamente.
+    <NavigationContainer>
+      {/* O AuthProvider envolve as rotas da aplicação, permitindo que os componentes 
+          dentro dele acessem o contexto de autenticação. */}
+      <AuthProvider>
+        {/* O componente Routes é responsável por definir as diferentes telas 
+            ou páginas da aplicação e como navegar entre elas. */}
+        <Routes />
+      </AuthProvider>
+    </NavigationContainer>
   );
 }

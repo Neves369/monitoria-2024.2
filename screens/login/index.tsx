@@ -8,17 +8,26 @@ import {
   ImageBackground,
   Button,
 } from "react-native";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import background from "../../assets/background.png";
+import AuthContext from "../../context/auth";
 
 const Login = () => {
   // Define o estado para email e senha
+
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
+  // @ts-ignore
+  const { signIn } = useContext(AuthContext);
 
   // Função chamada ao logar
   const logar = () => {
-    console.log("entrou!");
+    const usuario = {
+      nome: "João",
+      email: email,
+      senha: senha,
+    };
+    signIn(usuario);
   };
 
   return (
