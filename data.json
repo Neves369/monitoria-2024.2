@@ -11,19 +11,24 @@
                     "nome": "Supino Reto",
                     "series": 4,
                     "repeticoes": "8-12",
-                    "descricao": "Exercício de peito para fortalecer a parte central do peitoral."
+                    "descricao": "Exercício de peito para fortalecer a parte central do peitoral.",
+                    "video": ""
                   },
                   {
                     "nome": "Supino Inclinado com Halteres",
                     "series": 3,
                     "repeticoes": "10-12",
-                    "descricao": "Focado na parte superior do peito."
+                    "descricao": "Focado na parte superior do peito.",
+                    "video": ""
+
                   },
                   {
                     "nome": "Crucifixo",
                     "series": 3,
                     "repeticoes": "10-12",
-                    "descricao": "Exercício para expandir e alongar o peitoral."
+                    "descricao": "Exercício para expandir e alongar o peitoral.",
+                    "video": ""
+
                   }
                 ]
             },

@@ -36,7 +36,7 @@ const TreinoItem = ({
       <View style={styles.itemSection}>
         <Text style={styles.itemTitle}>{item.nome}</Text>
 
-        {item.exercicios.length > 0 && (
+        {item.exercicios?.length > 0 && (
           <View style={styles.info}>
             <MaterialIcons name="list" size={24} color={"grey"} />
             <Text>{item.exercicios.length} Exercícios</Text>

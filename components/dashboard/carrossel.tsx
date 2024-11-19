@@ -5,6 +5,7 @@ import {
   Dimensions,
   Image,
   ImageBackground,
+  TouchableWithoutFeedback,
 } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 
@@ -38,14 +39,17 @@ const Carrossel = () => {
 
   return (
     <View style={styles.container}>
-      <Carousel
-        data={data}
-        width={width}
-        autoPlay={true}
-        autoPlayInterval={5000}
-        renderItem={renderItem}
-        scrollAnimationDuration={2000}
-      />
+      <TouchableWithoutFeedback>
+        <Carousel
+          enabled={false}
+          data={data}
+          width={width}
+          autoPlay={true}
+          autoPlayInterval={2000}
+          renderItem={renderItem}
+          scrollAnimationDuration={2000}
+        />
+      </TouchableWithoutFeedback>
     </View>
   );
 };

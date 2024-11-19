@@ -7,12 +7,17 @@ const imageMap: any = {
     "POWERLIFTING": require("../assets/menu/musculação.webp"),
     "ACADEMIAS": require("../assets/menu/academia.jpg"),
 
-    // 
+    // divisões
     "PEITO": require("../assets/musculos/peito.webp"),
     "COSTAS": require("../assets/musculos/costas.webp"),
     "PERNAS": require("../assets/musculos/coxas.webp"),
     "OMBROS": require("../assets/musculos/ombro.webp"),
     "BRAÇOS": require("../assets/musculos/biceps.webp"),
+
+    // exercicios
+    "Supino Reto": require("../assets/exercicios/supino-reto.jpg"),
+    "Supino Inclinado com Halteres": require("../assets/exercicios/supino inclinado.jpg"),
+    "Crucifixo": require("../assets/exercicios/crucifixo.jpg"),
 
   };
   

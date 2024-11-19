@@ -5,6 +5,9 @@ import {
 } from "@react-navigation/native-stack";
 import Dashboard from "../screens/dashboard";
 import Treino from "../screens/treino";
+import TreinoCategoria from "../screens/treino/_sub";
+import Exercicio from "../screens/exercicio";
+import IExercicio from "../models/IExercicio";
 
 // Define o tipo StackNavigation que representa a estrutura das rotas na navegação de stack.
 // Esse tipo descreve duas rotas (Dashboard e Treino)
@@ -14,6 +17,8 @@ import Treino from "../screens/treino";
 type StackNavigation = {
   Dashboard: undefined;
   Treino: Array<any>;
+  Exercicios: Array<any>;
+  Exercicio: IExercicio;
 };
 
 // Exportando 3 tipos que serão usados para tipar as props nas telas e na navegação:
@@ -26,6 +31,14 @@ export type DashboardProps = NativeStackScreenProps<
   "Dashboard"
 >;
 export type TreinoProps = NativeStackScreenProps<StackNavigation, "Treino">;
+export type ExerciciosProps = NativeStackScreenProps<
+  StackNavigation,
+  "Exercicios"
+>;
+export type ExercicioProps = NativeStackScreenProps<
+  StackNavigation,
+  "Exercicio"
+>;
 
 // Criação do stack navigator do tipo StackNavigation,
 //garantindo que navegação siga a estrutura de rotas e parâmetros definidos no mesmo.
@@ -40,7 +53,7 @@ const AppRoutes = () => {
         name="Dashboard"
         component={Dashboard}
         options={{
-          headerShown: false,
+          // headerShown: false,
           animation: "slide_from_left",
         }}
       />
@@ -49,6 +62,22 @@ const AppRoutes = () => {
         component={Treino}
         options={{
           animation: "slide_from_left",
+        }}
+      />
+
+      <Screen
+        name="Exercicios"
+        component={TreinoCategoria}
+        options={{
+          animation: "slide_from_right",
+        }}
+      />
+
+      <Screen
+        name="Exercicio"
+        component={Exercicio}
+        options={{
+          animation: "slide_from_right",
         }}
       />
     </Navigator>

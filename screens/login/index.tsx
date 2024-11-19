@@ -1,33 +1,45 @@
 import {
   View,
   Text,
-  Image,
   TextInput,
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
-  Button,
+  ActivityIndicator,
 } from "react-native";
 import { useContext, useState } from "react";
 import background from "../../assets/background.png";
 import AuthContext from "../../context/auth";
+import UsuarioService from "../../services/UsuarioService";
+import { Controller, useForm } from "react-hook-form";
 
 const Login = () => {
-  // Define o estado para email e senha
-
-  const [email, setEmail] = useState<string>("");
-  const [senha, setSenha] = useState<string>("");
-  // @ts-ignore
-  const { signIn } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+  const { signIn }: any = useContext(AuthContext);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   // Função chamada ao logar
-  const logar = () => {
-    const usuario = {
-      nome: "João",
-      email: email,
-      senha: senha,
-    };
-    signIn(usuario);
+  const logar = (data: any) => {
+    setLoading(true);
+
+    UsuarioService.login(data)
+      .then((resp: any) => {
+        if (resp.status == 200) {
+          signIn(resp.data[0]);
+        } else {
+          console.log("Erro ao realizar login!");
+        }
+      })
+      .catch((e) => {
+        console.log("Erro: ", e);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -36,32 +48,66 @@ const Login = () => {
         <View style={styles.signInContainer}>
           <Text style={styles.label}>SIGN IN</Text>
         </View>
-        <TextInput
-          placeholderTextColor={"white"}
-          style={styles.input}
-          placeholder="Email"
-          value={email}
-          onChangeText={(e) => {
-            setEmail(e);
+
+        <Controller
+          control={control}
+          name="email"
+          rules={{
+            required: true,
           }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              autoCapitalize="none"
+              keyboardType="email-address"
+              textContentType="emailAddress"
+              maxLength={60}
+              placeholderTextColor={"white"}
+              style={styles.input}
+              placeholder="Email"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+            />
+          )}
         />
-        <TextInput
-          placeholderTextColor={"white"}
-          style={styles.input}
-          secureTextEntry={true}
-          placeholder="Password"
-          value={senha}
-          onChangeText={(e) => {
-            setSenha(e);
+        {errors.email && (
+          <Text style={{ color: "red" }}>E-mail é obrigatório.</Text>
+        )}
+
+        <Controller
+          control={control}
+          name="senha"
+          rules={{
+            required: true,
           }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              autoCapitalize="none"
+              maxLength={12}
+              placeholderTextColor={"white"}
+              style={styles.input}
+              secureTextEntry={true}
+              placeholder="Password"
+              value={value}
+              onChangeText={onChange}
+              onBlur={onBlur}
+            />
+          )}
         />
+        {errors.senha && (
+          <Text style={{ color: "red" }}>Senha é obrigatória.</Text>
+        )}
+
         <TouchableOpacity
-          onPress={() => {
-            logar(); // Chama a função logar ao pressionar o botão
-          }}
+          disabled={loading}
+          onPress={handleSubmit(!loading ? logar : () => {})}
           style={styles.button}
         >
-          <Text style={styles.textButton}>ENTRAR</Text>
+          {loading ? (
+            <ActivityIndicator />
+          ) : (
+            <Text style={styles.textButton}>ENTRAR</Text>
+          )}
         </TouchableOpacity>
       </ImageBackground>
     </View>
