@@ -18,6 +18,10 @@ const imageMap: any = {
     "Supino Reto": require("../assets/exercicios/supino-reto.jpg"),
     "Supino Inclinado com Halteres": require("../assets/exercicios/supino inclinado.jpg"),
     "Crucifixo": require("../assets/exercicios/crucifixo.jpg"),
+    "Puxada Alta": require("../assets/exercicios/puxada-alta.jpg"),
+    "Remada Curvada": require("../assets/exercicios/remada-curvada.jpg"),
+    "Pullover": require("../assets/exercicios/pullover.jpg"),
+
 
   };
   

@@ -13,7 +13,7 @@ const Exercicio = ({ route, navigation }: ExercicioProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Youtube videoId={"SWVO95XzxKg"} />
+        {route.params.video && <Youtube videoId={route.params.video} />}
       </View>
 
       <View style={styles.line}>

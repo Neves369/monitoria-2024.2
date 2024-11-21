@@ -29,7 +29,12 @@ const Youtube = ({ videoId }: YoutubeProps) => {
           androidLayerType: isReadyForRender ? "hardware" : "software",
         }}
       />
-      {!videoReady && <ActivityIndicator color="red" />}
+      {!videoReady && (
+        <ActivityIndicator
+          style={{ position: "absolute", alignSelf: "center", top: 100 }}
+          color="red"
+        />
+      )}
     </View>
   );
 };
